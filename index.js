@@ -78,10 +78,7 @@ async function handleRequest(request) {
     .on('*', new ElementHandler(variant))
     .transform(fetched);
 
-  if(!cookie){
-    //Set the cookie if there isn't one from the request
-    res.headers.append('Set-Cookie', 'variant='+variant);
-  }
+  res.headers.append('Set-Cookie', 'variant='+variant);
 
   return res;
 
